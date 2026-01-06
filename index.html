@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aurora Snaps Photography | Confidence • Connection • Story</title>
+  <meta name="description" content="Story-driven photography for women-led brands and communities. Confidence mini sessions, brand storytelling, and events." />
+
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --card:#12121a;
+      --text:#f5f5f7;
+      --muted:#b9b9c6;
+      --line:rgba(255,255,255,.10);
+      --accent:#ffffff;
+      --accent2:#d6d6ff;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1080px;
+      --pad:22px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background: radial-gradient(1000px 600px at 20% 10%, rgba(214,214,255,.12), transparent 50%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(255,255,255,.08), transparent 45%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 70px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;margin-bottom:18px;
+    }
+    .brand{
+      display:flex;gap:10px;align-items:center;
+      letter-spacing:.3px;
+    }
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(214,214,255,.7));
+      box-shadow: var(--shadow);
+    }
+    .brand h1{font-size:14px;margin:0;color:var(--text);opacity:.95}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{
+      font-size:13px;color:var(--muted);
+      padding:9px 10px;border-radius:12px;
+    }
+    .navlinks a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 14px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);font-weight:600;font-size:13px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+    .btn:hover{background:rgba(255,255,255,.10)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(255,255,255,.95), rgba(214,214,255,.75));
+      color:#0b0b0f;border:0;
+    }
+    .hero{
+      display:grid;grid-template-columns: 1.2fr .8fr;
+      gap:18px;align-items:stretch;margin-top:10px;
+    }
+    @media (max-width: 860px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background:rgba(18,18,26,.86);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:24px;
+      backdrop-filter: blur(10px);
+    }
+    .headline{
+      font-size:40px;line-height:1.05;margin:0 0 10px;
+      letter-spacing:-.8px;
+    }
+    @media (max-width: 520px){ .headline{font-size:34px} }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      max-width: 60ch;
+    }
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
+    .pill{
+      font-size:12px;color:var(--text);
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      padding:8px 10px;border-radius:999px;
+    }
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .grid{
+      display:grid;grid-template-columns: repeat(3, 1fr);
+      gap:12px;margin-top:14px;
+    }
+    @media (max-width: 860px){ .grid{grid-template-columns:1fr} }
+    .mini{
+      padding:18px;border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+    }
+    .mini h3{margin:0 0 6px;font-size:15px}
+    .mini p{margin:0;color:var(--muted);font-size:13px}
+    .section{margin-top:18px}
+    .section h2{
+      margin:0 0 12px;
+      font-size:18px;letter-spacing:-.2px;
+    }
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width: 860px){ .two{grid-template-columns:1fr} }
+    .price{
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .tag{font-size:12px;color:var(--muted)}
+    .price .amount{font-size:28px;margin:0}
+    ul{margin:0;padding-left:18px;color:var(--muted)}
+    li{margin:6px 0}
+    .footer{
+      margin-top:26px;
+      display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;
+      color:var(--muted);font-size:12px;opacity:.95;
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
+    .note{font-size:12px;color:var(--muted);margin-top:10px}
+    .divider{height:1px;background:var(--line);margin:14px 0}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Aurora Snaps Photography</h1>
+          <p>Confidence • Connection • Story</p>
+        </div>
+      </div>
+      <div class="navlinks">
+        <a href="#work">Work</a>
+        <a href="#offers">Offers</a>
+        <a href="#minis">Mini Sessions</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h2 class="headline">Story-driven photography<br/>for women who show up.</h2>
+        <p class="sub">
+          I capture confidence and connection — whether it’s a community, a brand, a couple,
+          or a milestone. Guided, natural, and never stiff.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Brand storytelling</span>
+          <span class="pill">Fitness + wellness</span>
+          <span class="pill">Couples + events</span>
+          <span class="pill">Candid, cinematic, real</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Book / Inquire</a>
+          <a class="btn" href="#minis">See mini sessions</a>
+          <a class="btn" href="YOUR_PORTFOLIO_LINK" target="_blank" rel="noreferrer">View portfolio</a>
+        </div>
+
+        <p class="note">Replace the links above with your booking link (HoneyBook, Calendly, Google Form, etc.).</p>
+      </div>
+
+      <div class="card" id="work">
+        <h2 style="margin:0 0 10px;font-size:18px;">What you’ll get</h2>
+        <div class="grid">
+          <div class="mini">
+            <h3>Guided confidence</h3>
+            <p>I’ll direct posture, expression, and movement so you feel natural — not posed.</p>
+          </div>
+          <div class="mini">
+            <h3>Real connection</h3>
+            <p>Moments that feel true: support, laughter, pride, and presence.</p>
+          </div>
+          <div class="mini">
+            <h3>Marketing-ready</h3>
+            <p>Images built for socials, websites, promos, and personal milestones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section card" id="offers">
+      <h2>Signature Offers</h2>
+      <div class="two">
+        <div class="mini price">
+          <div class="tag">Presence Session</div>
+          <p class="amount">$650</p>
+          <ul>
+            <li>90 minutes • 2 outfits</li>
+            <li>25 edited images</li>
+            <li>Guided posing + expression coaching</li>
+            <li>Perfect for personal branding or portraits</li>
+          </ul>
+          <div class="divider"></div>
+          <a class="btn" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Inquire</a>
+        </div>
+
+        <div class="mini price">
+          <div class="tag">Brand Story Session</div>
+          <p class="amount">$1,200</p>
+          <ul>
+            <li>Half-day shoot</li>
+            <li>50+ edited images</li>
+            <li>Pre-shoot strategy call</li>
+            <li>Content for 2–3 months</li>
+          </ul>
+          <div class="divider"></div>
+          <a class="btn" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Inquire</a>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="mini price">
+        <div class="tag">Community / Event Coverage</div>
+        <p class="amount">$1,800–$2,500</p>
+        <ul>
+          <li>Event storytelling (candid + posed)</li>
+          <li>Highlights delivered fast</li>
+          <li>Full gallery with marketing usage rights</li>
+        </ul>
+        <div class="divider"></div>
+        <a class="btn" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Inquire</a>
+      </div>
+    </div>
+
+    <div class="section card" id="minis">
+      <h2>Confidence Mini Sessions</h2>
+      <p class="sub" style="margin-top:0">
+        A quick, guided portrait experience — perfect for celebrating progress and capturing confidence.
+      </p>
+
+      <div class="two">
+        <div class="mini price">
+          <div class="tag">Mini Package A</div>
+          <p class="amount">$50</p>
+          <ul>
+            <li>5–7 min session</li>
+            <li>Choose 3 edited images</li>
+            <li>Private proof gallery</li>
+          </ul>
+        </div>
+        <div class="mini price">
+          <div class="tag">Mini Package B</div>
+          <p class="amount">$75</p>
+          <ul>
+            <li>5–7 min session</li>
+            <li>Choose 5 edited images</li>
+            <li>Private proof gallery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="cta">
+        <a class="btn primary" href="YOUR_GOOGLE_FORM_LINK" target="_blank" rel="noreferrer">Reserve a Mini Session</a>
+        <a class="btn" href="YOUR_PAYMENT_LINK" target="_blank" rel="noreferrer">Pay Here</a>
+      </div>
+
+      <p class="note">Tip: use a single Stripe payment link or a Venmo/Linktree page so payment is one click.</p>
+    </div>
+
+    <div class="section card" id="contact">
+      <h2>Contact</h2>
+      <p class="sub" style="margin-top:0">
+        Ready to create something real? Send your idea, date, and location — I’ll respond with next steps.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:YOUREMAIL@DOMAIN.COM">Email Me</a>
+        <a class="btn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noreferrer">DM on Instagram</a>
+      </div>
+      <p class="note">Replace YOUREMAIL@DOMAIN.COM and YOUR_HANDLE with your real info.</p>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Aurora Snaps Photography</div>
+      <div>SoCal • Story-driven portraits • Brands • Events</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
