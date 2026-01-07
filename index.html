@@ -4,515 +4,293 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Aurora Snaps Photography</title>
-  <meta name="description" content="Photography portfolio — slideshows, galleries, booking." />
+  <meta name="description" content="Story-driven photography capturing confidence, connection, and presence for women-led brands, communities, and individuals." />
 
-  <!--
-    HOW TO USE:
-    1) Replace the image URLs in:
-       - SLIDES (middle slideshow)
-       - FEATURE LEFT / FEATURE RIGHT
-       - GALLERY THUMBNAILS
-    2) Upload this as index.html (Netlify / GitHub Pages).
-  -->
+  <!-- Luxury serif font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #ffffff;
-      --ink: #111;
-      --muted: #666;
-      --line: rgba(0,0,0,.10);
-      --shadow: 0 18px 45px rgba(0,0,0,.12);
-      --max: 1120px;
-      --gap: 12px;
-      --radius: 10px;
-      --navFont: 11px;
+      --bg:#000000;
+      --card:#141414;
+      --text:#f5f5f7;
+      --muted:#b9b9c6;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 20px 40px rgba(0,0,0,.6);
+      --radius:18px;
+      --max:1080px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+      --gold: linear-gradient(
+        135deg,
+        #f5e7b2 0%,
+        #d4af37 35%,
+        #b8962e 55%,
+        #f5e7b2 75%,
+        #c9a227 100%
+      );
     }
 
-    *{ box-sizing:border-box; }
+    *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--ink);
-      background: var(--bg);
+      background:#000000;
+      color:var(--text);
+      font-family:var(--font);
+      line-height:1.5;
     }
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 18px 16px 60px; }
 
-    /* Header */
-    header{ text-align:center; padding: 8px 0 14px; }
-    .logo{
-      font-family: ui-rounded, "Trebuchet MS", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      font-weight: 600;
-      font-size: 34px;
-      letter-spacing: .2px;
-      line-height: 1.1;
-      margin: 6px 0 10px;
-      color: #2f8a7a; /* subtle teal like your example */
+    a{color:inherit;text-decoration:none}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:32px 20px 80px;
     }
-    nav{
+
+    /* NAV */
+    .nav{
       display:flex;
-      justify-content:center;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: var(--navFont);
-      text-transform: uppercase;
-      letter-spacing: .9px;
-      color: var(--muted);
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:32px;
     }
-    nav a{
-      padding: 6px 6px;
-      border-radius: 999px;
-      transition: background .15s ease, color .15s ease;
-    }
-    nav a:hover{ background: rgba(0,0,0,.05); color: var(--ink); }
 
-    /* Feature row (3 panels like screenshot) */
-    .featureRow{
-      margin-top: 14px;
+    .brand{
+      font-family:'Cinzel', serif;
+      font-size:14px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      background:var(--gold);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .navlinks a{
+      margin-left:18px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .navlinks a:hover{color:#fff}
+
+    /* HERO */
+    .hero{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:48px 36px;
+      box-shadow:var(--shadow);
+      margin-bottom:32px;
+    }
+
+    .gold-title{
+      font-family:'Cinzel', serif;
+      font-size:42px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      background:var(--gold);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin:0 0 16px;
+    }
+
+    .subtitle{
+      font-size:15px;
+      color:var(--muted);
+      max-width:600px;
+      margin-bottom:28px;
+    }
+
+    .cta a{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:14px;
+      font-size:13px;
+      font-weight:600;
+      margin-right:12px;
+      border:1px solid var(--line);
+    }
+
+    .cta a.primary{
+      background:var(--gold);
+      color:#000;
+      border:none;
+    }
+
+    .cta a:hover{opacity:.85}
+
+    /* SECTIONS */
+    .section{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:32px;
+      box-shadow:var(--shadow);
+      margin-bottom:28px;
+    }
+
+    h2{
+      margin:0 0 18px;
+      font-size:20px;
+      letter-spacing:.5px;
+    }
+
+    .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: var(--gap);
-      align-items: stretch;
-    }
-    @media (max-width: 900px){
-      .featureRow{ grid-template-columns: 1fr; }
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
     }
 
-    .panel{
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #f7f7f7;
-      box-shadow: var(--shadow);
-      min-height: 440px;
-    }
-    @media (max-width: 900px){
-      .panel{ min-height: 360px; }
+    .box{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px;
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .panel img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.01);
-      transition: transform .25s ease;
-    }
-    .panel:hover img{ transform: scale(1.04); }
-
-    .panelOverlay{
-      position:absolute;
-      inset:0;
-      background: linear-gradient(to top, rgba(0,0,0,.45), transparent 55%);
-      opacity: 0;
-      transition: opacity .18s ease;
-      pointer-events:none;
-    }
-    .panel:hover .panelOverlay{ opacity: 1; }
-
-    .panelLabel{
-      position:absolute;
-      left: 14px;
-      bottom: 14px;
-      color: #fff;
-      font-size: 12px;
-      letter-spacing: .4px;
-      text-transform: uppercase;
-      background: rgba(0,0,0,.35);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .18s ease, transform .18s ease;
-    }
-    .panel:hover .panelLabel{
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Slideshow panel */
-    .slider{
-      position: relative;
-      width:100%;
-      height:100%;
-    }
-    .slide{
-      position:absolute;
-      inset:0;
-      opacity:0;
-      transition: opacity .35s ease;
-    }
-    .slide.active{ opacity:1; }
-    .slide img{ width:100%; height:100%; object-fit:cover; }
-
-    .sliderControls{
-      position:absolute;
-      left: 0;
-      right: 0;
-      bottom: 12px;
-      display:flex;
-      justify-content:center;
-      gap: 8px;
-      z-index: 5;
-    }
-    .dot{
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(0,0,0,.15);
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .dot.active{ background: rgba(255,255,255,.95); transform: scale(1.12); }
-
-    .arrow{
-      position:absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.25);
-      background: rgba(0,0,0,.25);
-      color: #fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      z-index: 6;
-      opacity: 0;
-      transition: opacity .18s ease, background .18s ease;
-      user-select:none;
-      backdrop-filter: blur(6px);
-    }
-    .panel:hover .arrow{ opacity: 1; }
-    .arrow:hover{ background: rgba(0,0,0,.35); }
-    .arrow.left{ left: 12px; }
-    .arrow.right{ right: 12px; }
-
-    /* Social + footer area like screenshot */
-    .belowFeature{
-      text-align:center;
-      margin: 18px 0 0;
-    }
-    .socialRow{
-      display:flex;
-      justify-content:center;
-      gap: 10px;
-      margin: 6px 0 10px;
-    }
-    .socialBtn{
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: #333;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .socialBtn:hover{ transform: translateY(-2px); background: rgba(0,0,0,.04); }
-
-    footer{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* Gallery section */
-    .sectionTitle{
-      margin: 34px 0 10px;
-      text-align:center;
-      font-size: 14px;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: #444;
-    }
-    .gallery{
-      columns: 3;
-      column-gap: 12px;
-      margin-top: 14px;
-    }
-    @media (max-width: 980px){ .gallery{ columns: 2; } }
-    @media (max-width: 560px){ .gallery{ columns: 1; } }
-
-    .gItem{
-      break-inside: avoid;
-      margin: 0 0 12px;
-      border-radius: 12px;
-      overflow:hidden;
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 28px rgba(0,0,0,.10);
-      background:#f6f6f6;
-      cursor: zoom-in;
-      position:relative;
-    }
-    .gItem img{
-      width:100%;
-      height:auto;
-      display:block;
-      transition: transform .25s ease;
-    }
-    .gItem:hover img{ transform: scale(1.03); }
-
-    /* Lightbox */
-    .lightbox{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.85);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index: 50;
-      padding: 18px;
-    }
-    .lightbox.open{ display:flex; }
-    .lightboxInner{
-      max-width: min(1100px, 96vw);
-      max-height: 86vh;
-      width: 100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-    }
-    .lightbox img{
-      max-width: 100%;
-      max-height: 86vh;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    }
-    .lbClose{
-      position:absolute;
-      top: -10px;
-      right: -10px;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.35);
+    .price{
+      font-size:28px;
+      margin:8px 0 12px;
       color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      backdrop-filter: blur(6px);
-      user-select:none;
+    }
+
+    ul{
+      padding-left:18px;
+      margin:0;
+    }
+
+    li{margin:6px 0;color:var(--muted)}
+
+    /* FOOTER */
+    .footer{
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:40px;
+    }
+
+    @media(max-width:600px){
+      .gold-title{font-size:34px}
+      .hero{padding:36px 24px}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">Photographer</div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#slides">Slideshows</a>
-        <a href="#galleries">Galleries</a>
-        <a href="#about">About</a>
-        <a href="#templates">Templates</a>
-        <a href="#prints">Order Prints</a>
-        <a href="#booking">Booking</a>
-      </nav>
-    </header>
 
-    <!-- FEATURE PANELS -->
-    <main id="home" class="featureRow">
-      <!-- Left feature (static) -->
-      <a class="panel" href="#galleries" aria-label="View Couples gallery">
-        <img
-          src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=1200&q=80"
-          alt="Couple portrait"
-        />
-        <div class="panelOverlay"></div>
-        <div class="panelLabel">Couples</div>
-      </a>
+<div class="wrap">
 
-      <!-- Middle feature (slideshow) -->
-      <section class="panel" id="slides" aria-label="Slideshow">
-        <div class="slider" data-autoplay="true" data-interval="4200">
-          <!-- SLIDE 1 -->
-          <div class="slide active">
-            <img
-              src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1200&q=80"
-              alt="Fitness portrait"
-            />
-          </div>
-          <!-- SLIDE 2 -->
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1520975958225-790f4d312a1a?auto=format&fit=crop&w=1200&q=80"
-              alt="Studio portrait"
-            />
-          </div>
-          <!-- SLIDE 3 -->
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1520975867597-0f5c9f0c7c63?auto=format&fit=crop&w=1200&q=80"
-              alt="Event moment"
-            />
-          </div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="brand">Aurora Snaps</div>
+    <div class="navlinks">
+      <a href="#offers">Offers</a>
+      <a href="#minis">Mini Sessions</a>
+      <a href="#contact">Contact</a>
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
+    </div>
+  </div>
 
-          <div class="arrow left" role="button" aria-label="Previous slide">‹</div>
-          <div class="arrow right" role="button" aria-label="Next slide">›</div>
+  <!-- HERO -->
+  <div class="hero">
+    <h1 class="gold-title">Aurora Snaps Photography</h1>
+    <p class="subtitle">
+      Story-driven photography capturing confidence, connection, and presence —
+      for women-led brands, communities, and individuals.
+    </p>
 
-          <div class="sliderControls" aria-label="Slideshow controls">
-            <div class="dot active" data-index="0" aria-label="Slide 1"></div>
-            <div class="dot" data-index="1" aria-label="Slide 2"></div>
-            <div class="dot" data-index="2" aria-label="Slide 3"></div>
-          </div>
+    <div class="cta">
+      <a class="primary" href="YOUR_BOOKING_LINK" target="_blank">Book / Inquire</a>
+      <a href="#minis">Mini Sessions</a>
+    </div>
+  </div>
 
-          <div class="panelLabel" style="opacity:1;transform:none;">Featured</div>
-        </div>
-      </section>
-
-      <!-- Right feature (static) -->
-      <a class="panel" href="#galleries" aria-label="View Storytelling gallery">
-        <img
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80"
-          alt="Moody forest road"
-        />
-        <div class="panelOverlay"></div>
-        <div class="panelLabel">Storytelling</div>
-      </a>
-    </main>
-
-    <div class="belowFeature">
-      <div class="socialRow" aria-label="Social links">
-        <a class="socialBtn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noreferrer" aria-label="Instagram">IG</a>
-        <a class="socialBtn" href="mailto:YOUREMAIL@DOMAIN.COM" aria-label="Email">@</a>
-        <a class="socialBtn" href="#booking" aria-label="Booking">📅</a>
+  <!-- OFFERS -->
+  <div class="section" id="offers">
+    <h2>Signature Offers</h2>
+    <div class="grid">
+      <div class="box">
+        <strong>Presence Session</strong>
+        <div class="price">$650</div>
+        <ul>
+          <li>90-minute guided shoot</li>
+          <li>25 edited images</li>
+          <li>Confidence & expression coaching</li>
+        </ul>
       </div>
 
-      <footer>
-        Copyright © <span id="year"></span> • All Rights Reserved
-      </footer>
-    </div>
+      <div class="box">
+        <strong>Brand Story Session</strong>
+        <div class="price">$1,200</div>
+        <ul>
+          <li>Half-day shoot</li>
+          <li>50+ images</li>
+          <li>Content for 2–3 months</li>
+        </ul>
+      </div>
 
-    <!-- GALLERY -->
-    <h2 class="sectionTitle" id="galleries">Gallery</h2>
-
-    <section class="gallery" aria-label="Portfolio gallery">
-      <!-- Replace these image URLs with your own (Pixieset, Google Drive direct links, your hosted images, etc.) -->
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1400&q=80" alt="Portrait" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1400&q=80" alt="Couple" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1520975614889-9f2f5b7a2d75?auto=format&fit=crop&w=1400&q=80" alt="Gym" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?auto=format&fit=crop&w=1400&q=80" alt="Wedding" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1400&q=80" alt="Studio" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80" alt="Nature" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80" alt="Portrait closeup" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1400&q=80" alt="Couple candid" /></div>
-      <div class="gItem"><img src="https://images.unsplash.com/photo-1520975958225-790f4d312a1a?auto=format&fit=crop&w=1400&q=80" alt="Fashion portrait" /></div>
-    </section>
-
-    <!-- Simple sections (optional placeholders) -->
-    <h2 class="sectionTitle" id="about">About</h2>
-    <p style="max-width: 70ch; margin: 0 auto; text-align:center; color: var(--muted);">
-      I photograph confidence, connection, and story — couples, events, and women-led communities.
-      <br/>Swap this text with your real bio.
-    </p>
-
-    <h2 class="sectionTitle" id="booking">Booking</h2>
-    <p style="max-width: 70ch; margin: 0 auto; text-align:center; color: var(--muted);">
-      Add your booking link here (HoneyBook / Calendly / Google Form).
-      <br/>
-      <a style="display:inline-block;margin-top:12px;border:1px solid var(--line);padding:10px 14px;border-radius:999px;"
-         href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Book / Inquire</a>
-    </p>
-  </div>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightboxInner" role="dialog" aria-label="Image preview">
-      <div class="lbClose" id="lbClose" aria-label="Close">✕</div>
-      <img id="lbImg" alt="Preview"/>
+      <div class="box">
+        <strong>Community / Event Coverage</strong>
+        <div class="price">$1,800+</div>
+        <ul>
+          <li>Candid storytelling</li>
+          <li>Marketing usage rights</li>
+          <li>Fast turnaround</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <!-- MINIS -->
+  <div class="section" id="minis">
+    <h2>Confidence Mini Sessions</h2>
+    <div class="grid">
+      <div class="box">
+        <strong>Mini A</strong>
+        <div class="price">$50</div>
+        <ul>
+          <li>5–7 minute session</li>
+          <li>3 edited images</li>
+        </ul>
+      </div>
 
-    // Slideshow
-    (function(){
-      const slider = document.querySelector(".slider");
-      if(!slider) return;
+      <div class="box">
+        <strong>Mini B</strong>
+        <div class="price">$75</div>
+        <ul>
+          <li>5–7 minute session</li>
+          <li>5 edited images</li>
+        </ul>
+      </div>
+    </div>
 
-      const slides = Array.from(slider.querySelectorAll(".slide"));
-      const dots = Array.from(slider.querySelectorAll(".dot"));
-      const prev = slider.querySelector(".arrow.left");
-      const next = slider.querySelector(".arrow.right");
+    <div class="cta" style="margin-top:22px">
+      <a class="primary" href="YOUR_GOOGLE_FORM_LINK" target="_blank">Reserve a Spot</a>
+    </div>
+  </div>
 
-      let index = 0;
-      let timer = null;
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <h2>Contact</h2>
+    <p class="subtitle">
+      Ready to create something intentional and real?
+    </p>
+    <div class="cta">
+      <a class="primary" href="mailto:YOUREMAIL@DOMAIN.COM">Email Me</a>
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">DM on Instagram</a>
+    </div>
+  </div>
 
-      function show(i){
-        index = (i + slides.length) % slides.length;
-        slides.forEach((s, k) => s.classList.toggle("active", k === index));
-        dots.forEach((d, k) => d.classList.toggle("active", k === index));
-      }
+  <div class="footer">
+    © <span id="year"></span> Aurora Snaps Photography · SoCal
+  </div>
 
-      function start(){
-        const autoplay = slider.dataset.autoplay === "true";
-        const interval = parseInt(slider.dataset.interval || "4500", 10);
-        if(!autoplay) return;
-        stop();
-        timer = setInterval(() => show(index + 1), interval);
-      }
-      function stop(){
-        if(timer) clearInterval(timer);
-        timer = null;
-      }
+</div>
 
-      prev.addEventListener("click", () => { show(index - 1); start(); });
-      next.addEventListener("click", () => { show(index + 1); start(); });
-      dots.forEach(d => d.addEventListener("click", () => { show(parseInt(d.dataset.index,10)); start(); }));
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-      // pause on hover
-      slider.addEventListener("mouseenter", stop);
-      slider.addEventListener("mouseleave", start);
-
-      start();
-    })();
-
-    // Lightbox for gallery
-    (function(){
-      const lb = document.getElementById("lightbox");
-      const lbImg = document.getElementById("lbImg");
-      const close = document.getElementById("lbClose");
-
-      function open(src, alt){
-        lbImg.src = src;
-        lbImg.alt = alt || "Preview";
-        lb.classList.add("open");
-        lb.setAttribute("aria-hidden", "false");
-      }
-      function shut(){
-        lb.classList.remove("open");
-        lb.setAttribute("aria-hidden", "true");
-        lbImg.src = "";
-      }
-
-      document.querySelectorAll(".gItem img, .panel > img").forEach(img => {
-        img.addEventListener("click", (e) => {
-          // allow panel links to still work if you click label area; clicking image opens lightbox
-          e.preventDefault();
-          open(img.currentSrc || img.src, img.alt);
-        });
-      });
-
-      close.addEventListener("click", shut);
-      lb.addEventListener("click", (e) => { if(e.target === lb) shut(); });
-      document.addEventListener("keydown", (e) => { if(e.key === "Escape") shut(); });
-    })();
-  </script>
 </body>
 </html>
