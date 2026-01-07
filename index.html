@@ -135,62 +135,35 @@
       letter-spacing:.5px;
     }
 
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-    }
-
-    @media(max-width:900px){
-      .gallery{grid-template-columns:repeat(2,1fr);}
-    }
-
-    @media(max-width:520px){
-      .gallery{grid-template-columns:1fr;}
-    }
-
-    .gallery img{
+    /* ===== ROTATING GALLERY ===== */
+    .carousel{
+      position:relative;
       width:100%;
-      height:280px;
+      height:420px;
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid var(--line);
+    }
+
+    .carousel img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
       object-fit:cover;
-      border-radius:14px;
-      border:1px solid var(--line);
-      transition:transform .35s ease, opacity .35s ease;
+      opacity:0;
+      transition:opacity 1.2s ease;
     }
 
-    .gallery img:hover{
-      transform:scale(1.04);
-      opacity:.9;
+    .carousel img.active{
+      opacity:1;
     }
 
-    /* OFFERS */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
+    @media(max-width:600px){
+      .carousel{height:300px;}
+      .gold-title{font-size:34px;}
+      .hero{padding:36px 24px;}
     }
-
-    .box{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:20px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .price{
-      font-size:28px;
-      margin:8px 0 12px;
-      color:#fff;
-    }
-
-    ul{
-      padding-left:18px;
-      margin:0;
-    }
-
-    li{margin:6px 0;color:var(--muted)}
 
     /* FOOTER */
     .footer{
@@ -198,11 +171,6 @@
       font-size:12px;
       color:var(--muted);
       margin-top:40px;
-    }
-
-    @media(max-width:600px){
-      .gold-title{font-size:34px}
-      .hero{padding:36px 24px}
     }
   </style>
 </head>
@@ -217,7 +185,6 @@
     <div class="navlinks">
       <a href="#portfolio">Portfolio</a>
       <a href="#offers">Offers</a>
-      <a href="#minis">Mini Sessions</a>
       <a href="#contact">Contact</a>
       <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
     </div>
@@ -233,87 +200,30 @@
 
     <div class="cta">
       <a class="primary" href="YOUR_BOOKING_LINK" target="_blank">Book / Inquire</a>
-      <a href="#portfolio">View Portfolio</a>
+      <a href="#portfolio">View Work</a>
     </div>
   </div>
 
   <!-- PORTFOLIO -->
   <div class="section" id="portfolio">
-    <h2>Portfolio</h2>
-    <p class="subtitle">A curated selection of recent work.</p>
+    <h2>Featured Work</h2>
+    <p class="subtitle">A living glimpse into connection and confidence.</p>
 
-    <div class="gallery">
-      <img src="images/portfolio-01.jpg" alt="Aurora Snaps portfolio image 1">
-      <img src="images/portfolio-02.jpg" alt="Aurora Snaps portfolio image 2">
-      <img src="images/portfolio-03.jpg" alt="Aurora Snaps portfolio image 3">
-      <img src="images/portfolio-04.jpg" alt="Aurora Snaps portfolio image 4">
-      <img src="images/portfolio-05.jpg" alt="Aurora Snaps portfolio image 5">
-      <img src="images/portfolio-06.jpg" alt="Aurora Snaps portfolio image 6">
+    <div class="carousel" id="carousel">
+      <img src="images/portfolio-01.jpg" class="active" alt="Portfolio image 1">
+      <img src="images/portfolio-02.jpg" alt="Portfolio image 2">
+      <img src="images/portfolio-03.jpg" alt="Portfolio image 3">
+      <img src="images/portfolio-04.jpg" alt="Portfolio image 4">
+      <img src="images/portfolio-05.jpg" alt="Portfolio image 5">
     </div>
   </div>
 
   <!-- OFFERS -->
   <div class="section" id="offers">
     <h2>Signature Offers</h2>
-    <div class="grid">
-      <div class="box">
-        <strong>Presence Session</strong>
-        <div class="price">$650</div>
-        <ul>
-          <li>90-minute guided shoot</li>
-          <li>25 edited images</li>
-          <li>Confidence & expression coaching</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <strong>Brand Story Session</strong>
-        <div class="price">$1,200</div>
-        <ul>
-          <li>Half-day shoot</li>
-          <li>50+ images</li>
-          <li>Content for 2–3 months</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <strong>Community / Event Coverage</strong>
-        <div class="price">$1,800+</div>
-        <ul>
-          <li>Candid storytelling</li>
-          <li>Marketing usage rights</li>
-          <li>Fast turnaround</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- MINIS -->
-  <div class="section" id="minis">
-    <h2>Confidence Mini Sessions</h2>
-    <div class="grid">
-      <div class="box">
-        <strong>Mini A</strong>
-        <div class="price">$50</div>
-        <ul>
-          <li>5–7 minute session</li>
-          <li>3 edited images</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <strong>Mini B</strong>
-        <div class="price">$75</div>
-        <ul>
-          <li>5–7 minute session</li>
-          <li>5 edited images</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cta" style="margin-top:22px">
-      <a class="primary" href="YOUR_GOOGLE_FORM_LINK" target="_blank">Reserve a Spot</a>
-    </div>
+    <p class="subtitle">
+      Intentional photography experiences designed around presence, not posing.
+    </p>
   </div>
 
   <!-- CONTACT -->
@@ -333,8 +243,31 @@
 </div>
 
 <script>
+  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-</body>
-</html>
+  // Carousel logic
+  const slides = document.querySelectorAll("#carousel img");
+  let current = 0;
+  let interval;
+
+  function showSlide(index){
+    slides.forEach((img, i) => {
+      img.classList.toggle("active", i === index);
+    });
+  }
+
+  function startCarousel(){
+    interval = setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 4000);
+  }
+
+  function stopCarousel(){
+    clearInterval(interval);
+  }
+
+  // Pause on hover (luxury touch)
+  const carousel = document.getElementById("carousel");
+  carousel.ad
