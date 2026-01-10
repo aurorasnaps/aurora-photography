@@ -4,294 +4,336 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Aurora Snaps Photography</title>
-  <meta name="description" content="Story-driven photography capturing confidence, connection, and presence for women-led brands, communities, and individuals." />
+  <meta name="description" content="Luxury, story-driven photography capturing confidence, connection, and presence." />
 
-  <!-- Luxury serif font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Elegant + modern fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#000000;
-      --card:#141414;
-      --text:#f5f5f7;
-      --muted:#b9b9c6;
-      --line:rgba(255,255,255,.12);
-      --shadow:0 20px 40px rgba(0,0,0,.6);
+      --bg:#000;
+      --card:#0f0f0f;
+      --text:#f6f3ea;
+      --muted:rgba(246,243,234,.72);
+      --line:rgba(255,255,255,.10);
+      --shadow:0 24px 60px rgba(0,0,0,.6);
       --radius:18px;
-      --max:1080px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --max:1120px;
 
       --gold: linear-gradient(
         135deg,
-        #f5e7b2 0%,
-        #d4af37 35%,
-        #b8962e 55%,
-        #f5e7b2 75%,
-        #c9a227 100%
+        #f7e7b8 0%,
+        #d4af37 30%,
+        #b78b2d 55%,
+        #f7e7b8 80%,
+        #caa436 100%
       );
     }
 
     *{box-sizing:border-box}
-
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      background:#000000;
+      background:var(--bg);
       color:var(--text);
-      font-family:var(--font);
-      line-height:1.5;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height:1.55;
     }
-
     a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:26px 18px 80px}
 
-    .wrap{
+    /* TOP NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:rgba(0,0,0,.78);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
       max-width:var(--max);
       margin:0 auto;
-      padding:32px 20px 80px;
-    }
-
-    /* NAV */
-    .nav{
+      padding:14px 18px;
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      margin-bottom:32px;
+      justify-content:space-between;
+      gap:14px;
     }
-
     .brand{
-      font-family:'Cinzel', serif;
-      font-size:14px;
+      display:flex; align-items:baseline; gap:10px;
+      white-space:nowrap;
+    }
+    .brand .name{
+      font-family:Cinzel, serif;
       letter-spacing:2px;
       text-transform:uppercase;
+      font-size:14px;
       background:var(--gold);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
-
-    .navlinks a{
-      margin-left:18px;
-      font-size:13px;
+    .brand .tag{
+      font-size:12px;
       color:var(--muted);
+      display:none;
     }
+    @media(min-width:780px){ .brand .tag{display:inline} }
 
-    .navlinks a:hover{color:#fff}
+    .navlinks{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navlinks a{
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+    }
+    .navlinks a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+    .navlinks a.primary{
+      color:#000;
+      background:var(--gold);
+      font-weight:800;
+    }
 
     /* HERO */
     .hero{
-      background:var(--card);
+      padding:34px 0 18px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media(max-width:920px){ .hero{grid-template-columns:1fr;} }
+
+    .hero-card{
+      border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:48px 36px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       box-shadow:var(--shadow);
-      margin-bottom:32px;
+      padding:26px;
+      overflow:hidden;
+      position:relative;
     }
 
     .gold-title{
-      font-family:'Cinzel', serif;
-      font-size:42px;
+      font-family:Cinzel, serif;
       letter-spacing:3px;
       text-transform:uppercase;
+      font-size:38px;
+      line-height:1.08;
+      margin:0 0 12px;
       background:var(--gold);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
-      margin:0 0 16px;
     }
+    @media(max-width:520px){ .gold-title{font-size:32px;} }
 
-    .subtitle{
-      font-size:15px;
-      color:var(--muted);
-      max-width:600px;
-      margin-bottom:28px;
-    }
-
-    .cta a{
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:14px;
-      font-size:13px;
-      font-weight:600;
-      margin-right:12px;
-      border:1px solid var(--line);
-    }
-
-    .cta a.primary{
-      background:var(--gold);
-      color:#000;
-      border:none;
-    }
-
-    .cta a:hover{opacity:.85}
-
-    /* SECTIONS */
-    .section{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:32px;
-      box-shadow:var(--shadow);
-      margin-bottom:28px;
-    }
-
-    h2{
+    .bio{
       margin:0 0 18px;
-      font-size:20px;
-      letter-spacing:.5px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:62ch;
     }
+    .bio strong{color:var(--text);font-weight:600}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
-    }
-
-    .box{
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}
+    .pill{
       border:1px solid var(--line);
-      border-radius:14px;
-      padding:20px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .price{
-      font-size:28px;
-      margin:8px 0 12px;
-      color:#fff;
-    }
-
-    ul{
-      padding-left:18px;
-      margin:0;
-    }
-
-    li{margin:6px 0;color:var(--muted)}
-
-    /* FOOTER */
-    .footer{
-      text-align:center;
+      border-radius:999px;
+      padding:8px 11px;
       font-size:12px;
+      color:rgba(246,243,234,.86);
+      background:rgba(255,255,255,.04);
+    }
+
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid var(--line);
+      font-size:13px;font-weight:600;
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn.gold{
+      background:var(--gold);
+      color:#000;border:none;
+      font-weight:800;
+    }
+
+    /* HERO CAROUSEL */
+    .hero-media{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      background:#090909;
+      min-height:420px;
+    }
+    @media(max-width:920px){ .hero-media{min-height:360px;} }
+
+    .slides img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1.2s ease, transform 6s ease;
+    }
+    .slides img.active{
+      opacity:1;
+      transform:scale(1.08);
+    }
+    .hero-media .overlay{
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+      pointer-events:none;
+    }
+    .hero-media .caption{
+      position:absolute; left:16px; bottom:14px;
+      right:16px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .caption .cap-left{
+      font-size:12px; letter-spacing:.9px; text-transform:uppercase;
+      color:rgba(246,243,234,.85);
+    }
+    .caption .cap-right{
+      font-size:12px; color:rgba(246,243,234,.70);
+    }
+
+    /* SECTION */
+    .section{
+      margin-top:22px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .section-head h2{
+      margin:0;
+      font-family:Cinzel, serif;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-size:22px;
+      background:var(--gold);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .section-head p{
+      margin:0;
       color:var(--muted);
-      margin-top:40px;
+      font-size:13px;
     }
 
-    @aurora.snaps.photography(max-width:600px){
-      .gold-title{font-size:34px}
-      .hero{padding:36px 24px}
+    /* MASONRY GRID */
+    .masonry{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      grid-auto-flow:dense;
     }
-  </style>
-</head>
+    @media(max-width:980px){ .masonry{grid-template-columns:repeat(2, 1fr);} }
+    @media(max-width:560px){ .masonry{grid-template-columns:1fr;} }
 
-<body>
+    .tile{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0a0a0a;
+      position:relative;
+      cursor:pointer;
+    }
+    .tile img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      transition:transform .45s ease, opacity .45s ease;
+      opacity:.98;
+    }
+    .tile:hover img{
+      transform:scale(1.04);
+      opacity:.9;
+    }
 
-<div class="wrap">
+    .tile.featured{grid-row:span 2;}
+    .tile.featured img{height:540px;}
+    @media(max-width:980px){
+      .tile.featured{grid-row:span 1;}
+      .tile.featured img{height:320px;}
+    }
 
-  <!-- NAV -->
-  <div class="nav">
-    <div class="brand">Aurora Snaps</div>
-    <div class="navlinks">
-      <a href="#offers">Offers</a>
-      <a href="#minis">Mini Sessions</a>
-      <a href="#contact">Contact</a>
-      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
-    </div>
-  </div>
+    .tile .label{
+      position:absolute;
+      left:12px; bottom:12px;
+      font-size:11px;
+      letter-spacing:.9px;
+      text-transform:uppercase;
+      color:rgba(246,243,234,.88);
+      background:rgba(0,0,0,.45);
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(6px);
+    }
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1 class="gold-title">Aurora Snaps Photography</h1>
-    <p class="subtitle">
-      Story-driven photography capturing confidence, connection, and presence —
-      for women-led brands, communities, and individuals.
-    </p>
+    /* SERVICES */
+    .offers{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+    }
+    @media(max-width:980px){ .offers{grid-template-columns:1fr;} }
 
-    <div class="cta">
-      <a class="primary" href="YOUR_BOOKING_LINK" target="_blank">Book / Inquire</a>
-      <a href="#minis">Mini Sessions</a>
-    </div>
-  </div>
+    .offer{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      background:rgba(255,255,255,.03);
+    }
+    .offer .name{
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      font-size:12px;
+      color:rgba(246,243,234,.92);
+      margin-bottom:8px;
+    }
+    .offer .price{
+      font-family:Cinzel, serif;
+      letter-spacing:1px;
+      font-size:26px;
+      background:var(--gold);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:10px;
+    }
+    .offer ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+    .offer li{margin:6px 0}
 
-  <!-- OFFERS -->
-  <div class="section" id="offers">
-    <h2>Signature Offers</h2>
-    <div class="grid">
-      <div class="box">
-        <strong>Presence Session</strong>
-        <div class="price">$650</div>
-        <ul>
-          <li>90-minute guided shoot</li>
-          <li>25 edited images</li>
-          <li>Confidence & expression coaching</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <strong>Brand Story Session</strong>
-        <div class="price">$1,200</div>
-        <ul>
-          <li>Half-day shoot</li>
-          <li>50+ images</li>
-          <li>Content for 2–3 months</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <strong>Community / Event Coverage</strong>
-        <div class="price">$1,800+</div>
-        <ul>
-          <li>Candid storytelling</li>
-          <li>Marketing usage rights</li>
-          <li>Fast turnaround</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- MINIS -->
-  <div class="section" id="minis">
-    <h2>Confidence Mini Sessions</h2>
-    <div class="grid">
-      <div class="box">
-        <strong>Mini A</strong>
-        <div class="price">$50</div>
-        <ul>
-          <li>5–7 minute session</li>
-          <li>3 edited images</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <strong>Mini B</strong>
-        <div class="price">$75</div>
-        <ul>
-          <li>5–7 minute session</li>
-          <li>5 edited images</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cta" style="margin-top:22px">
-      <a class="primary" href="YOUR_GOOGLE_FORM_LINK" target="_blank">Reserve a Spot</a>
-    </div>
-  </div>
-
-  <!-- CONTACT -->
-  <div class="section" id="contact">
-    <h2>Contact</h2>
-    <p class="subtitle">
-      Ready to create something intentional and real?
-    </p>
-    <div class="cta">
-      <a class="primary" href="mailto:YOUREMAIL@DOMAIN.COM">Email Me</a>
-      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">DM on Instagram</a>
-    </div>
-  </div>
-
-  <div class="footer">
-    © <span id="year"></span> Aurora Snaps Photography · SoCal
-  </div>
-
-</div>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
-
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.88);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:100;
+    }
+    .lightbox.open{display:flex}
+    .lightbox-inner{
+      ma
