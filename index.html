@@ -45,7 +45,7 @@
     img{max-width:100%;display:block}
     .wrap{max-width:var(--max);margin:0 auto;padding:26px 18px 80px}
 
-    /* TOP NAV */
+    /* TOP NAV (similar to reference) */
     .nav{
       position:sticky; top:0; z-index:50;
       background:rgba(0,0,0,.78);
@@ -97,7 +97,7 @@
     .navlinks a.primary{
       color:#000;
       background:var(--gold);
-      font-weight:800;
+      font-weight:700;
     }
 
     /* HERO */
@@ -139,6 +139,7 @@
       font-size:15px;
       max-width:62ch;
     }
+
     .bio strong{color:var(--text);font-weight:600}
 
     .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}
@@ -210,7 +211,7 @@
       font-size:12px; color:rgba(246,243,234,.70);
     }
 
-    /* SECTION */
+    /* SECTION TITLES */
     .section{
       margin-top:22px;
       border:1px solid var(--line);
@@ -239,7 +240,7 @@
       font-size:13px;
     }
 
-    /* MASONRY GRID */
+    /* MASONRY-LIKE GRID (similar to reference layout) */
     .masonry{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -269,6 +270,7 @@
       opacity:.9;
     }
 
+    /* featured tile like the big center image in your reference */
     .tile.featured{grid-row:span 2;}
     .tile.featured img{height:540px;}
     @media(max-width:980px){
@@ -290,7 +292,7 @@
       backdrop-filter:blur(6px);
     }
 
-    /* SERVICES */
+    /* OFFER CARDS */
     .offers{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -336,4 +338,267 @@
     }
     .lightbox.open{display:flex}
     .lightbox-inner{
-      ma
+      max-width:min(1100px, 95vw);
+      max-height:90vh;
+      width:100%;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:#000;
+      position:relative;
+      box-shadow:0 30px 80px rgba(0,0,0,.7);
+    }
+    .lightbox img{
+      width:100%;
+      height:90vh;
+      max-height:90vh;
+      object-fit:contain;
+      background:#000;
+    }
+    .lightbox .close{
+      position:absolute; top:12px; right:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(0,0,0,.55);
+      color:var(--text);
+      border-radius:999px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      backdrop-filter:blur(6px);
+    }
+    .lightbox .close:hover{background:rgba(255,255,255,.08)}
+
+    /* FOOTER */
+    .footer{
+      margin-top:24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="name">Aurora Snaps Photography</div>
+        <div class="tag">Confidence • Connection • Story</div>
+      </div>
+      <nav class="navlinks">
+        <a href="#work">Recent Work</a>
+        <a href="#offers">Services</a>
+        <a href="#contact">Contact</a>
+        <a class="primary" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-card">
+        <h1 class="gold-title">Aurora Snaps Photography</h1>
+
+        <p class="bio">
+          I don’t just take photos — I capture <strong>how it felt</strong>.
+          The calm before the moment. The connection in the eyes. The confidence you didn’t know you were wearing.
+          <br><br>
+          If you want images that look elevated but still feel like <strong>you</strong> — you’re in the right place.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Couples • Weddings • Events</span>
+          <span class="pill">Women-led brands • Fitness • Community</span>
+          <span class="pill">Candid • Editorial • Story-first</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn gold" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Book / Inquire</a>
+          <a class="btn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn" href="#work">View Recent Work</a>
+        </div>
+      </div>
+
+      <div class="hero-media" aria-label="Featured carousel">
+        <div class="slides" id="heroSlides">
+          <!-- HERO SLIDES: update filenames to match your /images folder -->
+          <img src="images/work-01.jpg" class="active" alt="Featured work 1">
+          <img src="images/work-02.jpg" alt="Featured work 2">
+          <img src="images/work-03.jpg" alt="Featured work 3">
+          <img src="images/work-04.jpg" alt="Featured work 4">
+          <img src="images/work-05.jpg" alt="Featured work 5">
+        </div>
+        <div class="overlay"></div>
+        <div class="caption">
+          <div class="cap-left">Featured Stories</div>
+          <div class="cap-right">Auto-rotating • Pause on hover</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT WORK (masonry) -->
+    <section class="section" id="work">
+      <div class="section-head">
+        <h2>Recent Work</h2>
+        <p>Click any image to enlarge.</p>
+      </div>
+
+      <div class="masonry" id="workGrid">
+        <!-- Make the 2nd tile featured to mimic the reference -->
+        <div class="tile" data-src="images/work-06.jpg"><img src="images/work-06.jpg" alt="Recent work 6"><div class="label">Story</div></div>
+        <div class="tile featured" data-src="images/work-07.jpg"><img src="images/work-07.jpg" alt="Recent work 7"><div class="label">Featured</div></div>
+        <div class="tile" data-src="images/work-08.jpg"><img src="images/work-08.jpg" alt="Recent work 8"><div class="label">Moment</div></div>
+
+        <div class="tile" data-src="images/work-09.jpg"><img src="images/work-09.jpg" alt="Recent work 9"><div class="label">Connection</div></div>
+        <div class="tile" data-src="images/work-10.jpg"><img src="images/work-10.jpg" alt="Recent work 10"><div class="label">Presence</div></div>
+        <div class="tile" data-src="images/work-11.jpg"><img src="images/work-11.jpg" alt="Recent work 11"><div class="label">Energy</div></div>
+
+        <div class="tile" data-src="images/work-12.jpg"><img src="images/work-12.jpg" alt="Recent work 12"><div class="label">Light</div></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="offers">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>Designed to feel effortless — and look unforgettable.</p>
+      </div>
+
+      <div class="offers">
+        <div class="offer">
+          <div class="name">Couples / Engagement</div>
+          <div class="price">$650+</div>
+          <ul>
+            <li>Guided, natural posing (no awkwardness)</li>
+            <li>Story-driven photos + romantic candids</li>
+            <li>Perfect for announcements & keepsakes</li>
+          </ul>
+        </div>
+
+        <div class="offer">
+          <div class="name">Weddings & Events</div>
+          <div class="price">$1,800+</div>
+          <ul>
+            <li>Documentary-style coverage</li>
+            <li>Details, emotion, movement, atmosphere</li>
+            <li>Fast highlight delivery available</li>
+          </ul>
+        </div>
+
+        <div class="offer">
+          <div class="name">Brands / Fitness / Community</div>
+          <div class="price">$900/mo+</div>
+          <ul>
+            <li>Content that feels human and premium</li>
+            <li>Perfect for gyms, coaches, women-led brands</li>
+            <li>Monthly storytelling retainers available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:16px" class="cta">
+        <a class="btn gold" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Book / Inquire</a>
+        <a class="btn" href="YOUR_GOOGLE_FORM_LINK" target="_blank" rel="noreferrer">Mini Session Signup</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Tell me the vibe, the date, and the vision.</p>
+      </div>
+
+      <div class="cta">
+        <a class="btn gold" href="mailto:YOUREMAIL@DOMAIN.COM">Email Me</a>
+        <a class="btn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noreferrer">DM on Instagram</a>
+        <a class="btn" href="YOUR_BOOKING_LINK" target="_blank" rel="noreferrer">Booking Link</a>
+      </div>
+
+      <p style="margin:14px 0 0;color:var(--muted);font-size:13px">
+        Tip: If you’re not sure what you need, message me “I want photos that feel like me” and I’ll guide you.
+      </p>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> Aurora Snaps Photography • SoCal • Black & Gold Edition
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="close" id="closeLightbox" type="button">Close</button>
+      <img id="lightboxImg" src="" alt="Expanded work">
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // HERO CAROUSEL (auto-rotate, pause on hover)
+    (function(){
+      const container = document.getElementById("heroSlides");
+      const slides = container.querySelectorAll("img");
+      let i = 0;
+      let timer;
+
+      function show(n){
+        slides.forEach((img, idx) => img.classList.toggle("active", idx === n));
+      }
+
+      function start(){
+        timer = setInterval(() => {
+          i = (i + 1) % slides.length;
+          show(i);
+        }, 4200);
+      }
+
+      function stop(){
+        clearInterval(timer);
+      }
+
+      container.parentElement.addEventListener("mouseenter", stop);
+      container.parentElement.addEventListener("mouseleave", start);
+
+      start();
+    })();
+
+    // LIGHTBOX for Recent Work
+    (function(){
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const closeBtn = document.getElementById("closeLightbox");
+
+      function open(src){
+        lightboxImg.src = src;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      }
+      function close(){
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImg.src = "";
+      }
+
+      document.querySelectorAll(".tile").forEach(tile => {
+        tile.addEventListener("click", () => open(tile.getAttribute("data-src")));
+      });
+
+      closeBtn.addEventListener("click", close);
+      lightbox.addEventListener("click", (e) => { if(e.target === lightbox) close(); });
+      document.addEventListener("keydown", (e) => { if(e.key === "Escape") close(); });
+    })();
+  </script>
+</body>
+</html>
